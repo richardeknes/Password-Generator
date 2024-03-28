@@ -51,6 +51,11 @@ function createPassword() {
     alert("Your password will not contain special characters.")
   }
 
+  // Error catcher in case user selects "no" for all options
+  if (hasLowers === false && hasUppers === false && hasNumerics === false && hasSpecials === false) {
+    return "User must select at least one character type. Please generate a new password";
+  };
+
 
   // Create new password using all of the inputs above + Math.random
   let newPassword = ""
