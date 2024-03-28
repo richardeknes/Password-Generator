@@ -11,9 +11,9 @@ function createPassword() {
 
   //Alerts for user input/selections. Advise user if true or false and, if true, add to 'selectedChars' array above
 
-  passwordLength = prompt("How long would you like your password to be?\nMinimim: 8\nMaximum: 128");
+  passwordLength = prompt("How long would you like your password to be?\nMinimim: 8 characters\nMaximum: 128 characters");
   if (passwordLength > 7 && passwordLength < 129) {
-    alert("Your password will contain " + passwordLength + "total characters.");
+    alert("Your password will contain " + passwordLength + " total characters.");
   }
   else {
     return "Password must be between 8 and 128 characters.";
@@ -51,6 +51,14 @@ function createPassword() {
     alert("Your password will not contain special characters.")
   }
 
+
+  // Create new password using all of the inputs above + Math.random
+  let newPassword = ""
+  for (let i = 0; i < passwordLength; i++) {
+    let rng = [Math.floor(Math.random() * selectedChars.length)];
+    newPassword = newPassword + selectedChars[rng];
+  }
+  return newPassword
 }
 
 // Get references to the #generate element
